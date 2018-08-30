@@ -6,5 +6,5 @@
 -silent-crashes \
 -force-free \
 -logFile /dev/stdout \
--buildOSXUniversalPlayer "./Build/osx/launcher.app" \
+-executeMethod WebGLBuilder.build \
 -quit || exit 1
