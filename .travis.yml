@@ -1,6 +1,15 @@
 os: osx
 osx_image: xcode9.4
 install:
-- ./Scripts/install.sh
+- curl -o Unity.pkg https://download.unity3d.com/download_unity/f2cce2a5991f/MacEditorInstaller/Unity-2017.4.10f1.pkg
+- sudo installer -dumplog -package Unity.pkg -target /
 script:
-- ./Scripts/build.sh
+- |
+  /Applications/Unity/Unity.app/Contents/MacOS/Unity \
+  -batchmode \
+  -nographics \
+  -silent-crashes \
+  -force-free \
+  -logFile /dev/stdout \
+  -buildOSXUniversalPlayer "./Build/osx/$project.app" \
+  -quit
