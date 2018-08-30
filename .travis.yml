@@ -7,3 +7,11 @@ install:
 - sudo installer -dumplog -package WebGL.pkg -target /
 script:
 - ./build.bash
+deploy:
+  provider: pages
+  local-dir: ./Build/webgl
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: false
+  on:
+    branch: master
